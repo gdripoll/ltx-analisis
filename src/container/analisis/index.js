@@ -8,7 +8,6 @@ export default function Analisis() {
     const [text, setText] = useState('inicial');
 
     const handleTextChange = e => {
-        console.log('Analisis',e.target.value)
         setText(e.target.value)
     }
 

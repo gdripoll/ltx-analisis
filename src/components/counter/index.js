@@ -4,9 +4,16 @@ import React, { useState, useEffect } from 'react';
 const Counter = (props) => {
 
     const [text, setText] = useState(props.text);
+    const [charCount, setCharCount] = useState(0);
+    const [wordCount, setWordCount] = useState(0);
 
-    useEffect(() => {
-        setText(props.text)
+    useEffect((pepe) => {
+        console.log(pepe);
+        let t = props.text.replace(/  /g,' ');
+        setText(t)
+        setCharCount(text.length);
+        setWordCount(text.split(' ').length);
+
         return function cleanup(){
             // aca borro
         }
@@ -14,9 +21,11 @@ const Counter = (props) => {
 
     return (
         <div>
-            <i>{props.text}</i>
-            <p>Text length: {props.text.length}.</p>
-            <i>{text}</i>
+            <div>{text}</div>
+            <p>
+                caracteres: {charCount}.<br/>
+                palabras: {wordCount}
+            </p>
         </div>
     );
 }
