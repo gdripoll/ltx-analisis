@@ -5,10 +5,10 @@ import Counter from '../../components/counter';
 
 export default function Analisis() {
 
-    const [text, setText] = useState('inicial');
+    const [text, setText] = useState('inicial papa pepe popo pipi papa pa pepito');
 
-    const handleTextChange = e => {
-        setText(e.target.value)
+    const handleTextChange = txt => {
+        setText(txt)
     }
 
     return (
