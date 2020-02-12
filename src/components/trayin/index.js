@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { Button, Grid, Paper, Box } from '@material-ui/core';
+import { Button, Box } from '@material-ui/core';
 
 
 const styles = makeStyles(theme => ({
@@ -18,7 +18,6 @@ const styles = makeStyles(theme => ({
 const Trayin = (props) => {
 
     const [input, setInput] = useState(props.text);
-    let textArea = React.createRef();
 
     const handleInputChange = e => {
         setInput(e.target.value)

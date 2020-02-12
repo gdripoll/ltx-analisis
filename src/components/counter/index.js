@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
+import { Box, Paper } from '@material-ui/core';
+
 
 const Counter = (props) => {
 
     const [text, setText] = useState('');
-    const [charCount, setCharCount] = useState(0);
-    const [wordCount, setWordCount] = useState(0);
+    // const [charCount, setCharCount] = useState(0);
+    // const [wordCount, setWordCount] = useState(0);
     const [wordStack, setWordStack] = useState([]);
-    const [wordUnique, setWordUnique] = useState([]);
+    const [wordUnique] = useState([]);
 
     useEffect(() => {
         // base
@@ -29,11 +31,6 @@ const Counter = (props) => {
         return wordStack.length;
     }
 
-    const conso = ()=>{
-        console.log('render!!!')
-        return 'Render!'
-    }
-
     const getUniqueCount = () => {
         console.log('showUnique',wordUnique)
         let wu = {};
@@ -53,16 +50,13 @@ const Counter = (props) => {
         return result;
     }
 
-    const fecha = new Date().toJSON();
-
     return (
-        <div>
-            {conso()} {fecha}
-            <p>caracteres: {getCharCount()} | palabras: {getWordCount()}</p>
-            <div style={{ 'backgroundColor': 'azure', 'border': 'solid 1px blue' }}>{props.text}</div>
-            <div style={{ 'border': 'solid 1px red' }}>{wordStack.join(', ')}</div>
-            <div style={{ 'border': 'solid 1px green' }}>uniques: {getUniqueCount()}</div>
-        </div>
+        <Box m={1}>
+            <Paper elevation={2}>caracteres: {getCharCount()} | palabras: {getWordCount()}</Paper>
+            <Paper elevation={2}>{props.text}</Paper>
+            <Paper elevation={2}>{wordStack.join(', ')}</Paper>
+            <Paper elevation={2}>uniques: {getUniqueCount()}</Paper>
+        </Box>
     );
 }
 
