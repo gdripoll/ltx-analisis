@@ -5,12 +5,11 @@ import TextField from '@material-ui/core/TextField';
 import { Button, Box } from '@material-ui/core';
 
 
-const styles = makeStyles(theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
     },
     textField: {
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-        marginTop: theme.spacing(10),
+        marginTop: theme.spacing(1),
     }
 }));
 
@@ -27,6 +26,7 @@ const Trayin = (props) => {
         props.handleText(input)
     }
 
+    const styles = useStyles()
     return (
         <Box m={1}>
             {/* <Paper variant="outlined" p={12}> */}

@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-import { Box, Paper } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Grid, Paper } from '@material-ui/core';
 
+
+const useStyles = makeStyles(theme => ({
+    root: {
+    },
+    textField: {
+        marginTop: theme.spacing(1),
+    }
+}));
 
 const Counter = (props) => {
 
@@ -14,11 +23,8 @@ const Counter = (props) => {
     useEffect(() => {
         // base
         const t = props.text.replace(/ +/g, ' ');
-
         setText(t);
         setWordStack(t.split(' '));
-        // console.log('useEffect |', t,' | ', text)
-
         //return function cleanup(){ // aca borro  }
     }, [props.text]); /// , text, wordStack
 
@@ -32,7 +38,7 @@ const Counter = (props) => {
     }
 
     const getUniqueCount = () => {
-        console.log('showUnique',wordUnique)
+        console.log('showUnique', wordUnique)
         let wu = {};
         wordStack.map((e) => {
             console.log(e, wu[e])
@@ -50,13 +56,27 @@ const Counter = (props) => {
         return result;
     }
 
+    const styles = useStyles()
     return (
-        <Box m={1}>
-            <Paper elevation={2}>caracteres: {getCharCount()} | palabras: {getWordCount()}</Paper>
-            <Paper elevation={2}>{props.text}</Paper>
-            <Paper elevation={2}>{wordStack.join(', ')}</Paper>
-            <Paper elevation={2}>uniques: {getUniqueCount()}</Paper>
-        </Box>
+        <Grid container className={styles.root} spacing={16}>
+            <Grid item xs={12}>
+                <Grid container className={styles.demo} justify="center" spacing={2}>
+                    <Grid key={1} item>
+                        <Paper elevation={2}>caracteres: {getCharCount()} | palabras: {getWordCount()}</Paper>
+                    </Grid>
+                    <Grid key={2} item>
+                        <Paper elevation={2}>{props.text}</Paper>
+                    </Grid>
+                    <Grid key={3} item>
+                        <Paper elevation={2}>{wordStack.join(', ')}</Paper>
+                    </Grid>
+                    <Grid key={4} item>
+                        <Paper elevation={2}>uniques: {getUniqueCount()}</Paper>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+
     );
 }
 
