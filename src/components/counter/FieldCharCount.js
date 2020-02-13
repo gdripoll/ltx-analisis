@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-import { Box, Paper } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
 
 
-const fieldCharCounter = (props) => {
+const FieldCharCounter = (props) => {
 
     const [text, setText] = useState('');
 
@@ -18,8 +18,8 @@ const fieldCharCounter = (props) => {
     }
 
     return (
-        <Paper elevation={2}>caracteres: {getCharCount()}</Paper>
+        <Paper>caracteres: {getCharCount()}</Paper>
     );
 }
 
-export default fieldCharCounter;
+export default FieldCharCounter;
